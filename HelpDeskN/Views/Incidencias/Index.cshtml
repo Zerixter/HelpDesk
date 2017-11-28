@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HelpDeskN.Models.Incidencia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TecnicQueObreLaIncidencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TecnicQueTancaLaIncidencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataAltaIncidencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescripcioCurta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TecnicQueObreLaIncidencia.NomTecnic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TecnicQueTancaLaIncidencia.NomTecnic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataAltaIncidencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DescripcioCurta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdIncidencia }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdIncidencia }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdIncidencia })
+        </td>
+    </tr>
+}
+
+</table>

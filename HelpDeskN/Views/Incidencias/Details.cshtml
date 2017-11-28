@@ -1,0 +1,50 @@
+﻿@model HelpDeskN.Models.Incidencia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Incidencia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TecnicQueObreLaIncidencia.NomTecnic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TecnicQueObreLaIncidencia.NomTecnic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TecnicQueTancaLaIncidencia.NomTecnic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TecnicQueTancaLaIncidencia.NomTecnic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAltaIncidencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAltaIncidencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescripcioCurta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescripcioCurta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdIncidencia }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
