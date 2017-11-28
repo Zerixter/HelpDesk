@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HelpDeskN.Models;
+using System.Data.Entity.Validation;
 
 namespace HelpDeskN.Controllers
 {
@@ -58,7 +59,14 @@ namespace HelpDeskN.Controllers
             if (ModelState.IsValid)
             {
                 db.Incidencies.Add(incidencia);
-                db.SaveChanges();
+                try
+                {
+                    db.SaveChanges();
+                } catch (DbEntityValidationException ex)
+                {
+                    var error = ex.EntityValidationErrors.First().ValidationErrors.First();
+                    this.ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                }
                 return RedirectToAction("Index");
             }
 
